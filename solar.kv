@@ -1,0 +1,88 @@
+ScreenManager:
+    First:
+    SolarCalculator:
+
+<First>:
+    name: "first"
+    canvas:
+        Color:
+            rgba: 0.8, 0.9, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        rows: 3
+        padding: 20
+        spacing: 20
+
+        Label:
+            text: "Mathematical Modelling and Performance Analysis of a Standalone Solar Power System for Domestic Applications"
+            font_size: 26
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 0,0,0,1
+
+        Label:
+            text: "Fakorede Gbemiro (SCI21MTH047) \nSupervisor: Mr. E.C. Akaligwo"
+            font_size: 22
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 0,0,0,1
+
+        Button:
+            text: "Continue"
+            font_size: 24
+            size_hint: 0.3, 0.3
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "calculator"
+
+<SolarCalculator>:
+    name: "calculator"
+    canvas:
+        Color:
+            rgba: 0.8, 0.9, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    GridLayout:
+        rows: 4
+        columns: 3
+        padding: 20
+        spacing: 10
+
+        Label:
+            text: "Enter Load (Watts):"
+            font_size: 20
+            color: 0,0,0,1
+
+        TextInput:
+            id: load_input
+            multiline: False
+            input_filter: "int"
+
+
+        Label:
+            text: "System Summary:"
+            font_size: 20
+            color: 0,0,0,1
+
+        TextInput:
+            id: results
+            readonly: True
+            multiline: True
+
+
+        Button:
+            text: "Calculate"
+            font_size: 18
+            on_release: root.calculate()
+
+        Button:
+            text: "Clear"
+            font_size: 18
+            on_release: root.clear()
+
